@@ -1,0 +1,24 @@
+{
+  "name": "vue-zawuni",
+  "version": "1.0.0",
+  "description": "Font Converter for Zawgyi and Unicode",
+  "main": "dist/vue-zawuni.min.js",
+  "scripts": {
+    "build": "node_modules/.bin/webpack"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/PHPJunior/vue-zawuni.git"
+  },
+  "keywords": [
+    "Zawgyi",
+    "Unicode"
+  ],
+  "author": "Nyi Nyi Lwin",
+  "license": "MIT",
+  "devDependencies": {
+    "path": "^0.12.7",
+    "webpack": "^4.6.0",
+    "webpack-cli": "^2.0.15"
+  }
+}

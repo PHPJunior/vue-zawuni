@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Vue Zawgyi Unicode</title>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+    <link rel="stylesheet" href='https://mmwebfonts.comquas.com/fonts/?font=mon3' />
+    <link rel="stylesheet" href='https://mmwebfonts.comquas.com/fonts/?font=zawgyi' />
+
+    <style>
+        .unicode {
+            font-family: "Pyidaungsu","MON3 Anonta 1" !important;
+        }
+
+        .zawgyi {
+            font-family: "Zawgyi-One" !important;
+        }
+    </style>
+</head>
+<body>
+<main role="main" class="mt-5">
+    <div id="app" class="container">
+        <div class="text-center mb-5">
+            <h1>vue-zawuni</h1>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="unicode">
+                    <h4 class="text-center mb-2">Zawgyi => Unicode</h4>
+                    {{ zawgyi | zawuni('unicode') }}
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="zawgyi">
+                    <h4 class="text-center mb-2">Unicode => Zawgyi</h4>
+                    {{ unicode | zawuni('zawgyi') }}
+                </div>
+            </div>
+        </div>
+
+        <div class="row mt-5">
+            <div class="col-md-6">
+                <div>
+                    <h4 class="text-center mb-2">Unicode</h4>
+                    <textarea class="unicode" id="unicode" v-model="tu" style="width: 100%;" cols="30" rows="10">
+                    </textarea>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div>
+                    <h4 class="text-center mb-2">Zawgyi</h4>
+                    <textarea class="zawgyi" id="zawgyi" v-model="tz" style="width: 100%;" cols="30" rows="10">
+                    </textarea>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+<script src="https://cdn.jsdelivr.net/npm/vue-zawuni/dist/vue-zawuni.min.js"></script>
+
+<script>
+    var app = new Vue({
+        el: '#app',
+        watch: {
+          tz: function (val) {
+            this.tu = this.$options.filters.zawuni(val, 'unicode');
+          },
+          tu: function (val) {
+            this.tz = this.$options.filters.zawuni(val, 'zawgyi')
+          }
+        },
+        data: {
+            tz: '',
+            tu: '',
+            unicode: 'သီဟိုဠ်မှ ဉာဏ်ကြီးရှင်သည် အာယုဝဍ်ဎနဆေးညွှန်းစာကို ဇလွန်ဈေးဘေးဗာဒံပင်ထက် အဓိဋ္ဌာန်လျက် ဂဃနဏဖတ်ခဲ့သည်။ယေဓမ္မာ ဟေတုပ္ပဘဝါ တေသံ ဟေတုံ တထာဂတော အာဟ တေသဉ္စ ယောနိရောဓေါ ဧဝံ ဝါဒီ မဟာသမဏော။(မြန်မာပြန်)မြတ်စွာဘုရားရှင်သည် ရှေးကပြုခဲ့ဖူးသော အကြောင်းတရားကြောင့် ဖြစ်ပေါ်လာကြသော အကျိုးတရားကို ဟောကြားတော်မူသည်။ထိုအကြောင်းတရားတို့၏ ချုပ်ငြိမ်းရာတရားတို့ကိုလည်း ဟောတော်မူ၏။ရဟန်းကြီးဖြစ်သော ဗုဒ္ဓမြတ်စွာဘုရားသည် ဤသို့သောအယူရှိတော်မူ၏။',
+            zawgyi: 'သီဟိုဠ္မွ ဉာဏ္ႀကီးရွင္သည္ အာယုဝဍ္ဎနေဆးၫႊန္းစာကို ဇလြန္ေဈးေဘးဗာဒံပင္ထက္ အဓိ႒ာန္လ်က္ ဂဃနဏဖတ္ခဲ့သည္။ေယဓမၼာ ေဟတုပၸဘဝါ ေတသံ ေဟတုံ တထာဂေတာ အာဟ ေတသၪၥ ေယာနိေရာေဓါ ဧဝံ ဝါဒီ မဟာသမေဏာ။(ျမန္မာျပန္)ျမတ္စြာဘုရားရွင္သည္ ေရွးကျပဳခဲ့ဖူးေသာ အေၾကာင္းတရားေၾကာင့္ ျဖစ္ေပၚလာၾကေသာ အက်ိဳးတရားကို ေဟာၾကားေတာ္မူသည္။ထိုအေၾကာင္းတရားတို႔၏ ခ်ဳပ္ၿငိမ္းရာတရားတို႔ကိုလည္း ေဟာေတာ္မူ၏။ရဟန္းႀကီးျဖစ္ေသာ ဗုဒၶျမတ္စြာဘုရားသည္ ဤသို႔ေသာအယူရွိေတာ္မူ၏။'
+        }
+    })
+</script>
+</body>
+</html>
