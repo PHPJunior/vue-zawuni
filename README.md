@@ -3,6 +3,9 @@ Font Converter for Zawgyi and Unicode
 
 ## Installation
 
+### Demo
+- [Demo](https://phpjunior.github.io/vue-zawuni/example/)
+
 ### NPM
 ```
 npm install --save vue-zawuni
