@@ -1,5 +1,7 @@
-# vue-zawuni
+# Vue-Zawuni
 Font Converter for Zawgyi and Unicode
+
+[![](https://data.jsdelivr.com/v1/package/npm/vue-zawuni/badge)](https://www.jsdelivr.com/package/npm/vue-zawuni)
 
 ## Installation
 
@@ -24,6 +26,16 @@ import Vue from 'vue'
 import VueZawUni from 'vue-zawuni'
 
 Vue.use(VueZawUni)
+```
+
+Mount with ssr :
+```js
+// If used in Nuxt.js / SSR, you should keep it only in browser build environment
+
+if (process.browser) {
+  const VueZawUni = require('vue-zawuni/dist/ssr')
+  Vue.use(VueZawUni)
+}
 ```
 
 ## Usage

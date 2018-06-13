@@ -2,9 +2,12 @@ const path = require("path");
 
 module.exports = {
   mode: "production",
-  entry: "./src/index.js",
+  entry: {
+    'vue-zawuni': './src/index.js',
+    'ssr': './src/ssr.js'
+  },
   output: {
-    filename: "vue-zawuni.min.js",
+    filename: "[name].min.js",
     path: path.resolve(__dirname, "dist")
   }
 };
