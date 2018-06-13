@@ -1,6 +1,6 @@
 {
   "name": "vue-zawuni",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Font Converter for Zawgyi and Unicode",
   "main": "dist/vue-zawuni.min.js",
   "scripts": {
